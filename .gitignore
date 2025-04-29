@@ -1,0 +1,9 @@
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+*.whl
+__pycache__/*  # Ignore all __pycache__ directories
