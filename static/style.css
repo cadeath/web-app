@@ -1,0 +1,51 @@
+.search-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.search-section input[type="text"] {
+    padding: 0.5rem;
+    width: 300px;
+    margin-right: 0.5rem;
+}
+
+.search-section button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.results-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.search-results {
+    list-style: none;
+    padding: 0;
+}
+
+.result-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.no-results {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+}
+
+header {
+    background: #f5f5f5;
+    padding: 1rem;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    background: #f5f5f5;
+}

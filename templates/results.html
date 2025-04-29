@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('serve_static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Search Results</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <form action="{{ url_for('search.search') }}" method="GET">
+                <input type="text" name="q" placeholder="Search..." value="{{ query if query else '' }}">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section class="results-section">
+            {% if results %}
+                <h2>Found {{ results|length }} results</h2>
+                <ul class="search-results">
+                    {% for result in results %}
+                    <li class="result-item">
+                        <h3>{{ result.title }}</h3>
+                        <p>{{ result.description }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-results">No results found</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; {{ year }} Web Application</p>
+    </footer>
+</body>
+</html>
