@@ -18,10 +18,6 @@ def serve_static(filename):
 def home():
     return render_template('index.html', title=SITE_TITLE)
 
-# @app.route("/search")
-# def search():
-#     return render_template('search.html', title=SITE_TITLE)
-
 @app.route("/admin")
 def admin():
     return redirect(url_for('home'))

@@ -7,3 +7,5 @@ build/
 *.egg
 *.whl
 __pycache__/*  # Ignore all __pycache__ directories
+
+.env
