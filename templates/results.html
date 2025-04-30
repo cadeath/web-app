@@ -141,10 +141,10 @@
                     <b>{{query}}</b>
                 -->
                 {% endautoescape %}
-                {% for result in results %}
+                {% for t,d in results %}
                 <div class="result-item">
-                    <h3>{{ result.title }}</h3>
-                    <p class="mb-0">{{ result.description }}</p>
+                    <h3>{{ t }}</h3>
+                    <p class="mb-0">{{ d }}</p>
                 </div>
                 {% endfor %}
             {% else %}

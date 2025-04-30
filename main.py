@@ -16,7 +16,8 @@ def serve_static(filename):
 
 @app.route('/')
 def home():
-    return render_template('index.html', title=SITE_TITLE)
+    # return render_template('index.html', title=SITE_TITLE)
+    return redirect(url_for('search.search'))
 
 @app.route("/admin")
 def admin():

@@ -9,7 +9,7 @@ services:
     volumes:
       - 'data:/var/lib/mysql'
     ports:
-      - '${DB_PORT:-3306}:3306'
+      - '${DB_PORT}:3306'
     networks:
       - test-network
 

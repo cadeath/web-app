@@ -1,6 +1,6 @@
 from flask import render_template, request, Blueprint
 from datetime import datetime
-from config import SITE_TITLE
+from config import SITE_TITLE, db_connection
 
 search_bp = Blueprint('search', __name__)
 
@@ -17,14 +17,19 @@ def search():
 def search_results():
     query = request.args.get('q', '')
     
-    results = [
-        { "title": "Example Result 1", "description": "description 1" },
-        { "title": "Example Result 2", "description": "description 2" },
-        { "title": "Example Result 3", "description": "description 3" },
-    ]  # Placeholder for search results
+    # results = [
+    #     { "title": "Example Result 1", "description": "description 1" },
+    #     { "title": "Example Result 2", "description": "description 2" },
+    #     { "title": "Example Result 3", "description": "description 3" },
+    # ]  # Placeholder for search results
+    results = ()
     if query:
-        # Add your search implementation here
-        pass
+        conn = db_connection()
+        cur = conn.cursor()
+        
+        cur.execute(f"SELECT title, description FROM tblSearches WHERE title LIKE \"%{query}%\" or description LIKE \"%{query}%\"")
+        results = cur.fetchall()
+        cur.close()
 
     return render_template(
         'results.html',
