@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import render_template, request, Blueprint
 from datetime import datetime
 from config import SITE_TITLE
 
@@ -6,25 +6,30 @@ search_bp = Blueprint('search', __name__)
 
 page_title = "Search"
 page_title = " - " + page_title if page_title else ""
+page_title = SITE_TITLE + page_title if SITE_TITLE else page_title
 
-@search_bp.route("/search")
+@search_bp.route("/search", methods=["GET"])
+# @bp.route("/search", methods=["GET"])
 def search():
-    page_title = "Search"
     return render_template('search.html', title=page_title)
 
 @search_bp.route("/search/results", methods=["GET"])
 def search_results():
     query = request.args.get('q', '')
     
-    results = []
+    results = [
+        { "title": "Example Result 1", "description": "description 1" },
+        { "title": "Example Result 2", "description": "description 2" },
+        { "title": "Example Result 3", "description": "description 3" },
+    ]  # Placeholder for search results
     if query:
         # Add your search implementation here
         pass
 
     return render_template(
-        'search.html',
+        'results.html',
         title=page_title,
         query=query,
         results=results,
-        year=datetime.now().year
+        year=datetime.now().year,
     )

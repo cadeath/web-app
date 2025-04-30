@@ -1,9 +1,10 @@
 from flask import Flask, redirect, url_for, send_from_directory, render_template
-from controllers.search import search_bp
 from config import SITE_TITLE
 
+from controllers.search import search_bp
+
 app = Flask(__name__)
-app.register_blueprint(search_bp, url_prefix='/search')
+app.register_blueprint(search_bp)
 
 @app.route('/favicon.ico')
 def favicon():
@@ -17,9 +18,9 @@ def serve_static(filename):
 def home():
     return render_template('index.html', title=SITE_TITLE)
 
-@app.route("/search")
-def search():
-    return render_template('search.html', title=SITE_TITLE)
+# @app.route("/search")
+# def search():
+#     return render_template('search.html', title=SITE_TITLE)
 
 @app.route("/admin")
 def admin():
