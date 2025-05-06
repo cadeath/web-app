@@ -17,11 +17,6 @@ def search():
 def search_results():
     query = request.args.get('q', '')
     
-    # results = [
-    #     { "title": "Example Result 1", "description": "description 1" },
-    #     { "title": "Example Result 2", "description": "description 2" },
-    #     { "title": "Example Result 3", "description": "description 3" },
-    # ]  # Placeholder for search results
     results = ()
     if query:
         conn = db_connection()
